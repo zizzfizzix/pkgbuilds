@@ -1,0 +1,65 @@
+# Maintainer: Kuba Serafinowski <zizzfizzix(at)gmail(dot)com>
+#
+# This PKGBUILD derives from official clucene PKGBUILD so below is a credits list for that one.
+# Contributor: Alois Nespor <alois.nespor@gmail.com>
+# Contributor: Tobias Powalowski <tpowa@archlinux.org>
+
+##############################################################
+#### The section below can be adjusted to suit your needs ####
+##############################################################
+# How many jobs should 'make' use (for multicore CPUs)?
+# Value is 2 by default because it doesn't hurt but can help.
+
+_jobcount="2"
+
+#############
+# What type of build do you want?
+# See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
+# Default is RelWithDebInfo to help with debugging.
+
+_buildtype="RelWithDebInfo"
+
+##############################################################
+
+pkgname=luceneplusplus-git
+pkgver=20110327
+pkgrel=1
+pkgdesc="CLucene is a C++ port of Lucene: A high-performance, full-featured text search engine."
+arch=('i686' 'x86_64')
+url="http://clucene.sourceforge.net"
+license=('APACHE' 'LGPL')
+depends=('boost-libs')
+makedepends=('git' 'python2' 'clang')
+options=('!strip')
+#changelog=ChangeLog
+
+_gitroot="git://github.com/ustramooner/LucenePlusPlus.git"
+_gitname="LucenePlusPlus"
+
+build() {
+  cd ${srcdir}
+  msg "Connecting to GIT server..."
+
+  if [ -d ${_gitname} ]; then
+    cd ${_gitname} && git pull origin
+    msg "Local files are updated."
+  else
+    git clone --depth 1 ${_gitroot}
+  fi
+
+  msg "GIT checkout done or server timeout"
+  msg "Starting build..."
+
+  rm -rf ${srcdir}/${_gitname}-build
+  cp -r ${srcdir}/$_gitname ${srcdir}/${_gitname}-build
+  cd ${srcdir}/${_gitname}-build
+
+  python2 ./waf configure build --prefix=/usr
+#  ./waf --static build
+ # make -j ${_jobcount}
+}
+
+#package() {
+  #cd ${srcdir}/${_gitname}-build
+  #make DESTDIR=${pkgdir} install
+#}
