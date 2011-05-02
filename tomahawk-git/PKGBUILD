@@ -63,7 +63,8 @@ build() {
     git submodule init && git submodule update
   else
     msg "Updating jreen..."
-    git pull origin
+    cd ../
+    git submodule update
   fi
 
   msg "GIT checkout done or server timeout"
