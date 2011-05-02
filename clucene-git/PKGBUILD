@@ -17,7 +17,7 @@ _buildtype="RelWithDebInfo"
 ##############################################################
 
 pkgname=clucene-git
-pkgver=20110325
+pkgver=20110502
 pkgrel=1
 pkgdesc="CLucene is a C++ port of Lucene: A high-performance, full-featured text search engine."
 arch=('i686' 'x86_64')
