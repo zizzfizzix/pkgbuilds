@@ -13,8 +13,8 @@ _buildtype="DebugFull"
 ##############################################################
 
 pkgname=tomahawk-git
-pkgver=20110502
-pkgrel=2
+pkgver=20110508
+pkgrel=1
 pkgdesc="A Music Player App written in C++/Qt"
 arch=('i686' 'x86_64')
 url="http://tomahawk-player.org/"
@@ -25,11 +25,6 @@ provides=('tomahawk')
 conflicts=('tomahawk')
 options=(!strip)
 changelog=ChangeLog
-
-# Those are jreen deps so shouldn't be up there by default
-# FIXME: remove this and add ext. jreen to deps
-#depends[${#depends[@]}-1]='qca'
-depends+=('qca' 'libidn')
 
 # Clean options array to strip pkg if release buildtype is chosen
 if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
@@ -49,19 +44,6 @@ build() {
     git clone --depth 1 ${_gitroot}
   fi
 
-  # Get/update jreen if enabled
-  # FIXME: make an external package for jreen (it's default by now)
-  cd ${srcdir}/${_gitname}/thirdparty
-  if [[ $(find -type d -empty|grep jreen|wc -l) -eq 1 ]]; then
-    msg "Obtaining jreen..."
-    cd ${srcdir}/${_gitname}
-    git submodule init && git submodule update
-  else
-    msg "Updating jreen..."
-    cd ../
-    git submodule update
-  fi
-
   msg "GIT checkout done or server timeout"
   msg "Starting build..."
 
@@ -69,7 +51,7 @@ build() {
   cp -r ${srcdir}/${_gitname} ${srcdir}/${_gitname}-build
   cd ${srcdir}/${_gitname}-build
 
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DINTERNAL_JREEN=ON -DCMAKE_BUILD_TYPE=${_buildtype}
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=${_buildtype}
   make
 }
 
