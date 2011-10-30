@@ -13,7 +13,7 @@ _buildtype="DebugFull"
 ##############################################################
 
 pkgname=tomahawk-git
-pkgver=20110929
+pkgver=20111030
 pkgrel=1
 pkgdesc="A Music Player App written in C++/Qt"
 arch=('i686' 'x86_64')
