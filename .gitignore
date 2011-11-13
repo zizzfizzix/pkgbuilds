@@ -1,3 +1,6 @@
 *.xz
 *.gz
 *.bz2
+*.swp
+*.kate-swp
+*~
