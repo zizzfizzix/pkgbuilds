@@ -25,7 +25,7 @@ url="http://clucene.sourceforge.net"
 license=('APACHE' 'LGPL')
 depends=('gcc-libs' 'zlib' 'boost-libs')
 makedepends=('boost' 'cmake' 'git')
-provides=('clucene=2.3.3.4')
+provides=('clucene')
 conflicts=('clucene')
 options=('!strip')
 changelog=ChangeLog
