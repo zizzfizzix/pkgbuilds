@@ -18,7 +18,7 @@ _gitbranch="master"
 ##############################################################
 
 pkgname=tomahawk-git
-pkgver=20111226
+pkgver=20111227
 pkgrel=1
 pkgdesc="A Music Player App written in C++/Qt - development version"
 arch=('i686' 'x86_64')
@@ -57,14 +57,14 @@ build() {
   mkdir ${srcdir}/${_gitname}-build
   cd ${srcdir}/${_gitname}-build
 
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=${_buildtype} ../${_gitname}
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBEXECDIR=lib/${_gitname} \
+        -DCMAKE_BUILD_TYPE=${_buildtype} \
+        ../${_gitname}
   make
 }
 
 package() {
   cd ${srcdir}/${_gitname}-build
   make DESTDIR=${pkgdir} install
-  # move everything from /usr/libexec per Arch's policy
-  mkdir ${pkgdir}/usr/lib/tomahawk
-  mv ${pkgdir}/usr/libexec/* ${pkgdir}/usr/lib/tomahawk/
 }
