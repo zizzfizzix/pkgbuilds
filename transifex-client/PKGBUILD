@@ -13,18 +13,14 @@ source=("http://pypi.python.org/packages/source/t/${pkgname}/${pkgname}-${pkgver
 md5sums=('4933b8dd88668ffae110100f90e89e9c')
 
 build() {
-
   if [[ -e ${srcdir}/${pkgname}-${pkgver}-pkg ]]; then rm -rf ${srcdir}/${pkgname}-${pkgver}-pkg; fi
   cp -r ${srcdir}/${pkgname}-${pkgver} ${srcdir}/${pkgname}-${pkgver}-pkg
   cd ${srcdir}/${pkgname}-${pkgver}-pkg
 
   python2 setup.py build
-
 }
 
 package() {
-
   cd ${srcdir}/${pkgname}-${pkgver}-pkg
   python2 setup.py install --prefix=/usr/ --root=$pkgdir/ --optimize=1
-
 }
