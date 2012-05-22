@@ -9,7 +9,7 @@
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
 # Default is RelWithDebInfo to help with debugging.
 
-_buildtype="RelWithDebInfo"
+_buildtype="Release"
 
 ##############################################################
 
