@@ -21,7 +21,7 @@ pkgdesc="ownCloud client based on mirall"
 arch=('i686' 'x86_64')
 url="http://owncloud.org/"
 license=('GPL2')
-depends=('qt' 'csync-owncloud>=0.50.6')
+depends=('qt' 'csync-owncloud')
 makedepends=('cmake')
 provides=('mirall' 'owncloud-client')
 conflicts=('mirall-git')
