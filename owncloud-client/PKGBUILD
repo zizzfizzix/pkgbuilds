@@ -9,7 +9,7 @@
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
 # Default is RelWithDebInfo to help with debugging.
 
-_buildtype="RelWithDebInfo"
+_buildtype="Release"
 
 ##############################################################
 
@@ -21,7 +21,7 @@ pkgdesc="ownCloud client based on mirall"
 arch=('i686' 'x86_64')
 url="http://owncloud.org/"
 license=('GPL2')
-depends=('qt' 'csync-owncloud')
+depends=('qt' 'csync-owncloud>=0.50.6')
 makedepends=('cmake')
 provides=('mirall' 'owncloud-client')
 conflicts=('mirall-git')
