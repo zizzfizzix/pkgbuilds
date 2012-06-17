@@ -30,8 +30,7 @@ _ziphash=e5f846a
 md5sums=('93d4600aa548df0c062cc36d349fc1c0')
 
 build() {
-  mv ${srcdir}/eartle-${_pkgname}-${_ziphash} ${srcdir}/${_pkgname}-${pkgver}
-  if [[ -e ${srcdir}/${_pkgname}-${pkgver}-build ]]; then rm -rf ${srcdir}/${_pkgname}-${pkgver}-build; fi
+  if [[ -e ${srcdir}/${_pkgname}-${pkgver}-build ]]; then rm -rf ${srcdir}/${_pkgname}-${pkgver}-build; else mv ${srcdir}/eartle-${_pkgname}-${_ziphash} ${srcdir}/${_pkgname}-${pkgver}; fi
   mkdir ${srcdir}/${_pkgname}-${pkgver}-build
   cd ${srcdir}/${_pkgname}-${pkgver}-build
 
