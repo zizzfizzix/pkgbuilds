@@ -43,7 +43,7 @@ build() {
   mkdir ${srcdir}/${_name}-${pkgver}-build
   cd ${srcdir}/${_name}-${pkgver}-build
 
-  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=${_buildtype} ../${_name}-${pkgver}
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=/usr/lib -DCMAKE_BUILD_TYPE=${_buildtype} -DCSYNC_INCLUDE_PATH=/usr/include ../${_name}-${pkgver}
   make
 }
 
