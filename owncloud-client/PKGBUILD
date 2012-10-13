@@ -29,7 +29,7 @@ options=(!strip)
 install=owncloud-client.install
 backup=('etc/owncloud-client/sync-exclude.lst')
 source=("http://download.owncloud.com/download/${_name}-${pkgver}.tar.bz2"
-        "${pkgname}.desktop"
+        "${pkgname}.desktop")
 md5sums=('708312223c43426e9fc62d42503b97a8'
          'e223d162626c2ff54efebaa90a182d81')
 
