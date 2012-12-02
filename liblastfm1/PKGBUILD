@@ -16,7 +16,7 @@ _buildtype="Release"
 _pkgname=liblastfm
 pkgname=("${_pkgname}1")
 pkgver=1.0.3
-pkgrel=1
+pkgrel=2
 pkgdesc='A Qt C++ library for the Last.fm webservices'
 url="https://github.com/lastfm/${_pkgname}/"
 license=('GPL3')
@@ -38,6 +38,7 @@ build() {
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_INSTALL_LIBEXECDIR=lib/${_pkgname} \
+        -DBUILD_FINGERPRINT=off \
         -DCMAKE_BUILD_TYPE=${_buildtype} \
         ../${_pkgname}-${pkgver}
   make
