@@ -15,7 +15,7 @@ _buildtype="Release"
 
 _pkgname=liblastfm
 pkgname=lastfm-fingerprinter1
-pkgver=1.0.3
+pkgver=1.0.6
 pkgrel=1
 arch=('i686' 'x86_64')
 url="https://github.com/lastfm/${_pkgname}/"
@@ -26,8 +26,8 @@ pkgdesc="An official Last.fm fingerprinter written in Qt/C++"
 provides=('lastfm-fingerprinter')
 conflicts=('lastfm-fingerprinter-git')
 source=("https://github.com/lastfm/${_pkgname}/zipball/${pkgver}")
-_ziphash=18f1cd1
-md5sums=('b58b6201ad48c6d20fbe1cc0696ffcdc')
+_ziphash=5826fe6
+md5sums=('65e0eaa704c182091576d41786781379')
 
 build() {
   if [[ -e ${srcdir}/${_pkgname}-${pkgver}-build ]]; then rm -rf ${srcdir}/${_pkgname}-${pkgver}-build; else mv ${srcdir}/lastfm-${_pkgname}-${_ziphash} ${srcdir}/${_pkgname}-${pkgver}; fi
