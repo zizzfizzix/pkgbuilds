@@ -27,8 +27,10 @@ makedepends=('cmake' 'pkg-config')
 provides=('libechonest')
 conflicts=('libechonest-git' 'libechonest')
 options=(!strip)
-source=(http://files.lfranchi.com/${_pkgname}-${pkgver}.tar.bz2)
-md5sums=('88b7524401d835c2e85593cfa096327d')
+source=("http://files.lfranchi.com/${_pkgname}-${pkgver}.tar.bz2"
+        'libechonest-2.0.2-Werror.patch')
+md5sums=('88b7524401d835c2e85593cfa096327d'
+         '26a144de520a3969ba03c5263958dd0b')
 
 # Clean options array to strip pkg if release buildtype is chosen
 if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
@@ -36,6 +38,9 @@ if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
 fi
 
 build() {
+  cd ${srcdir}/${_pkgname}-${pkgver}
+  patch -p0 -i ${startdir}/libechonest-2.0.2-Werror.patch
+
   if [[ -e ${srcdir}/${_pkgname}-${pkgver}-build ]]; then rm -rf ${srcdir}/${_pkgname}-${pkgver}-build; fi
   mkdir ${srcdir}/${_pkgname}-${pkgver}-build
   cd ${srcdir}/${_pkgname}-${pkgver}-build
