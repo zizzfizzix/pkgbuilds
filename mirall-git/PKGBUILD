@@ -15,13 +15,13 @@ _buildtype="RelWithDebInfo"
 ##############################################################
 
 pkgname=mirall-git
-pkgver=20120426
+pkgver=20130303
 pkgrel=1
 pkgdesc="Mirall folder sharing"
 arch=('i686' 'x86_64')
 url="https://gitorious.org/owncloud/mirall"
 license=('GPL2')
-depends=('qt' 'csync-owncloud')
+depends=('qt4' 'ocsync')
 makedepends=('git' 'cmake')
 provides=('mirall' 'owncloud-client')
 conflicts=('mirall' 'owncloud-client')
