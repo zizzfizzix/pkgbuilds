@@ -1,4 +1,5 @@
 # Maintainer: Kuba Serafinowski <zizzfizzix(at)gmail(dot)com>
+# Contributor: Danilo Kuehn <dk at nogo-software dot de>
 # https://github.com/zizzfizzix/pkgbuilds
 
 ##############################################################
@@ -16,7 +17,7 @@ _buildtype="Release"
 _name=mirall
 pkgname=owncloud-client
 pkgver=1.2.1
-pkgrel=2
+pkgrel=3
 pkgdesc="ownCloud client based on mirall"
 arch=('i686' 'x86_64')
 url="http://owncloud.org/"
@@ -40,6 +41,7 @@ fi
 build() {
   if [[ -e ${srcdir}/${_name}-${pkgver}-build ]]; then rm -rf ${srcdir}/${_name}-${pkgver}-build; fi
   mkdir ${srcdir}/${_name}-${pkgver}-build
+  mkdir -p ${srcdir}/${_name}-${pkgver}-build/doc/{html,man,latex,qthelp}
   cd ${srcdir}/${_name}-${pkgver}-build
 
   cmake -DQT_QMAKE_EXECUTABLE=qmake-qt4 \
