@@ -11,60 +11,38 @@
 
 _buildtype="DebugFull"
 
-# Which branch do you want to build from?
-# Default is "master".
-
-_gitbranch="master"
-
 ##############################################################
 
 pkgname=-git
-pkgver=20120312
+pkgver=0.0.0
 pkgrel=1
 pkgdesc=""
 arch=('i686' 'x86_64')
 url="http://"
-license=('GPL3')
+license=('')
 depends=('')
 optdepends=('-git: xx')
 provides=('$pkgname')
 conflicts=('$pkgname')
-#options=(!strip)
 install=.install
+source=('${pkgname}::git://some.git.com/git/git.git')
+md5sums=('SKIP')
 
-# Clean options array to strip pkg if release buildtype is chosen
-if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
-  options=()
+if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
+  options=(!strip)
 fi
 
-_gitroot="git://github.com/x-x/x.git"
-_gitname="x"
-
 build() {
-  cd ${srcdir}
-  msg "Connecting to GIT server..."
-
-  if [ -d ${_gitname} ]; then
-    cd ${_gitname} && git checkout ${_gitbranch} && git pull origin ${_gitbranch}
-  else
-    git clone --depth 1 ${_gitroot} -b ${_gitbranch}
-  fi
-
-  msg "GIT checkout done or server timeout"
-
-  if [[ -e ${srcdir}/${_gitname}-build ]]; then rm -rf ${srcdir}/${_gitname}-build; fi
-  mkdir ${srcdir}/${_gitname}-build
-  cd ${srcdir}/${_gitname}-build
+  cd ${srcdir}/${pkgname}
 
   cmake -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=lib \
-        -DCMAKE_INSTALL_LIBEXECDIR=lib/${_gitname} \
-        -DCMAKE_BUILD_TYPE=${_buildtype} \
-        ../${_gitname}
+        -DCMAKE_INSTALL_LIBEXECDIR=lib/${pkgname} \
+        -DCMAKE_BUILD_TYPE=${_buildtype}
   make
 }
 
 package() {
-  cd ${srcdir}/${_gitname}-build
+  cd ${srcdir}/${pkgname}
   make DESTDIR=${pkgdir} install
 }
