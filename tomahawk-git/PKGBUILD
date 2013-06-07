@@ -25,14 +25,12 @@ depends=('phonon' 'taglib' 'boost' 'clucene' 'libechonest2' 'jreen' 'qtweetlib' 
 makedepends=('git' 'cmake')
 provides=('tomahawk')
 conflicts=('tomahawk')
-options=(!strip)
 install=tomahawk.install
 source=(${pkgname}::'git://github.com/tomahawk-player/tomahawk.git')
 md5sums=('SKIP')
 
-# Clean options array to strip pkg if release buildtype is chosen
-if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
-  options=()
+if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
+  options=(!strip)
 fi
 
 pkgver() {
