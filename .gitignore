@@ -1,6 +1,8 @@
 *.xz
 *.gz
 *.bz2
+*.zip
+*.rar
 *.swp
 *.kate-swp
 *~
