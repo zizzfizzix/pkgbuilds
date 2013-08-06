@@ -7,30 +7,40 @@
 
 # What type of build do you want?
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
-# Default is DebugFull to help with debugging.
+# Default is RelWithDebInfo to help with debugging.
 
-_buildtype="DebugFull"
+_buildtype='RelWithDebInfo'
 
 ##############################################################
 
 pkgname=-git
 pkgver=0.0.0
 pkgrel=1
-pkgdesc=""
+pkgdesc=''
 arch=('i686' 'x86_64')
-url="http://"
+url='http://'
 license=('')
 depends=('')
 optdepends=('-git: xx')
-provides=('$pkgname')
-conflicts=('$pkgname')
+provides=("$pkgname")
+conflicts=("$pkgname")
 install=.install
-source=('${pkgname}::git://some.git.com/git/git.git')
+source=("${pkgname}::git://some.git.com/git/git.git")
 md5sums=('SKIP')
 
-if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
+if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
   options=(!strip)
 fi
+
+pkgver() {
+  cd ${srcdir}/${pkgname}
+  git describe --always --tags | sed 's|-|.|g'
+}
+
+prepare() {
+  cd ${srcdir}/${pkgname}
+  patch -p1 -i ${srcdir}/patch.patch
+}
 
 build() {
   cd ${srcdir}/${pkgname}

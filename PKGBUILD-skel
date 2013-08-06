@@ -7,18 +7,18 @@
 
 # What type of build do you want?
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
-# Default is RelWithDebInfo to help with debugging.
+# Default is Release.
 
-_buildtype="RelWithDebInfo"
+_buildtype='Release'
 
 ##############################################################
 
 pkgname=
 pkgver=
 pkgrel=1
-pkgdesc=""
+pkgdesc=''
 arch=('i686' 'x86_64')
-url="http://"
+url='http://'
 license=('')
 depends=('')
 makedepends=('')
@@ -30,7 +30,7 @@ md5sums=('')
 install=.install
 
 # Clean options array to strip pkg if release buildtype is chosen
-if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
+if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
   options=(!strip)
 fi
 
