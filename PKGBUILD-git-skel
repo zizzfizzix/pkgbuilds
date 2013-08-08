@@ -22,6 +22,7 @@ url='http://'
 license=('')
 depends=('')
 optdepends=('-git: xx')
+makedepends=('git' '')
 provides=("$pkgname")
 conflicts=("$pkgname")
 install=.install
