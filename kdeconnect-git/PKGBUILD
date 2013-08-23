@@ -9,7 +9,7 @@
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
 # Default is RelWithDebInfo.
 
-_buildtype="RelWithDebInfo"
+_buildtype='RelWithDebInfo'
 
 ##############################################################
 
@@ -26,7 +26,7 @@ install=kdeconnect.install
 source=("${pkgname}::git://anongit.kde.org/scratch/albertvaka/kdeconnect-kded")
 md5sums=('SKIP')
 
-if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
+if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
   options=(debug)
 fi
 
