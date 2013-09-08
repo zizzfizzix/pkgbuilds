@@ -7,14 +7,14 @@
 
 # What type of build do you want?
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
-# Default is RelWithDebInfo.
+# Default is Release.
 
-_buildtype='RelWithDebInfo'
+_buildtype='Release'
 
 ##############################################################
 
 pkgname=kdeconnect-git
-pkgver=103.71f9f9d
+pkgver=133.fe6a0a8
 pkgrel=1
 pkgdesc='KDE Connect - kded and kcm'
 url='https://albertvaka.wordpress.com/2013/08/05/introducing-kde-connect/'
@@ -23,7 +23,7 @@ arch=('i686' 'x86_64')
 depends=('kdelibs' 'qjson')
 makedepends=('automoc4' 'git' 'cmake')
 install=kdeconnect.install
-source=("${pkgname}::git://anongit.kde.org/scratch/albertvaka/kdeconnect-kded")
+source=("${pkgname}::git://anongit.kde.org/kdeconnect-kde")
 md5sums=('SKIP')
 
 if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
