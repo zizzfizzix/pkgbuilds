@@ -15,7 +15,7 @@ _buildtype="Release"
 
 _name=mirall
 pkgname=owncloud-client
-pkgver=1.4.1
+pkgver=1.4.2
 pkgrel=1
 pkgdesc="ownCloud client based on mirall"
 arch=('i686' 'x86_64')
@@ -28,7 +28,7 @@ conflicts=('mirall-git')
 install=owncloud-client.install
 backup=('etc/ownCloud/sync-exclude.lst')
 source=("http://download.owncloud.com/download/${_name}-${pkgver}.tar.bz2")
-md5sums=('d65de66b0387e9c18127d4baeae61e04')
+md5sums=('089a9df66f31d6915a60e48ca4a027a8')
 
 if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
   options=(!strip)
