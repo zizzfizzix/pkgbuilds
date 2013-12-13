@@ -31,7 +31,7 @@ source=("http://download.owncloud.com/desktop/stable/${_name}-${pkgver}.tar.bz2"
 md5sums=('b5298faab4ff22a3840afe7d2968e4c2')
 
 if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
-  options=(!strip)
+  options=('debug')
 fi
 
 prepare() {

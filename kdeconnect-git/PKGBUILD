@@ -29,7 +29,7 @@ source=("${pkgname}::git://anongit.kde.org/kdeconnect-kde")
 md5sums=('SKIP')
 
 if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
-  options=(debug)
+  options=('debug')
 fi
 
 pkgver() {

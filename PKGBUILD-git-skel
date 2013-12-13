@@ -30,7 +30,7 @@ source=("${pkgname}::git://some.git.com/git/git.git")
 md5sums=('SKIP')
 
 if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
-  options=(!strip)
+  options=('debug')
 fi
 
 pkgver() {
