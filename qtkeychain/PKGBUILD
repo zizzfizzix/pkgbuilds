@@ -2,6 +2,9 @@
 # Contributor: Teo Mrnjavac <teo@kde.org>
 # https://github.com/zizzfizzix/pkgbuilds
 
+# What type of build do you want?
+# See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
+
 _buildtype='Release'
 
 pkgname=qtkeychain

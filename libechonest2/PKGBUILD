@@ -8,9 +8,8 @@
 
 # What type of build do you want?
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
-# You can change it to for example RelWithDebInfo to help with debugging.
 
-_buildtype="Release"
+_buildtype='Release'
 
 ##############################################################
 
@@ -18,9 +17,9 @@ _pkgname=libechonest
 pkgname=${_pkgname}2
 pkgver=2.2.0
 pkgrel=1
-pkgdesc="C++ library for interfacing with Echo Nest"
+pkgdesc='C++ library for interfacing with Echo Nest'
 arch=('i686' 'x86_64')
-url="https://projects.kde.org/projects/playground/libs/libechonest"
+url='https://projects.kde.org/projects/playground/libs/libechonest'
 license=('GPL')
 depends=('qjson')
 makedepends=('cmake')
@@ -29,7 +28,7 @@ conflicts=('libechonest-git' 'libechonest')
 source=("http://files.lfranchi.com/${_pkgname}-${pkgver}.tar.bz2")
 md5sums=('7eecba464d7fdfa14974915b0092eb34')
 
-if [[ ! ${_buildtype} == "Release" ]] && [[ ! ${_buildtype} == "release" ]]; then
+if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
   options=('debug')
 fi
 

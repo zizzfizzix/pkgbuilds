@@ -7,7 +7,6 @@
 
 # What type of build do you want?
 # See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
-# Default is Release.
 
 _buildtype='Release'
 
