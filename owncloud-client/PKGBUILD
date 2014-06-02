@@ -22,6 +22,7 @@ url='http://owncloud.org/'
 license=('GPL2')
 depends=('qtkeychain' 'qtwebkit' 'neon')
 makedepends=('cmake')
+optdepends=('python-sphinx: to compile documentation' 'texlive-bin: to compile documentation')
 provides=('mirall' 'ocsync')
 conflicts=('mirall-git' 'ocsync')
 install=owncloud-client.install
@@ -42,8 +43,8 @@ build() {
   cd ${srcdir}/${_name}-${pkgver}-build
 
   cmake -DBUILD_WITH_QT4=on \
-        -DCMAKE_INSTALL_PREFIX=/usr \
         -DWITH_DOC=on \
+        -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DCMAKE_BUILD_TYPE=${_buildtype} \
         -DCMAKE_INSTALL_SYSCONFDIR=/etc/${pkgname} \
