@@ -9,3 +9,6 @@
 *~
 src/
 pkg/
+*.tar.*.asc
+*.zip.asc
+*.rar.asc
