@@ -23,7 +23,7 @@ license=('GPL3')
 depends=('qt5-svg' 'qt5-tools' 'qt5-xmlpatterns' 'qt5-x11extras' 'qca-qt5'
           'taglib' 'lucene++' 'libechonest-qt5-git' 'jreen-qt5'
           'quazip-qt5-svn' 'attica-qt5' 'qt5-webkit' 'liblastfm-qt5-git'
-          'qtkeychain-qt5' 'qca-ossl' 'vlc')
+          'qtkeychain-qt5' 'vlc')
 makedepends=('git' 'cmake' 'automoc4' 'sparsehash' 'boost' 'websocketpp')
 optdepends=('kdelibs: integration with Plasma Desktop' 'telepathy-qt4: integration with Telepathy')
 provides=('tomahawk')
