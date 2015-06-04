@@ -5,21 +5,21 @@
 # Contributor: Christian Berendt <christian@thorlin.de>
 
 pkgname=cfengine
-pkgver=3.6.0
+pkgver=3.6.5
 pkgrel=1
 pkgdesc='Automated suite of programs for configuring and maintaining Unix-like computers.'
 url='http://www.cfengine.org'
 license=('GPL3')
 arch=('i686' 'x86_64')
-depends=('qdbm' 'openssl' 'pcre' 'libxml2')
+depends=('liblmdb' 'openssl' 'pcre' 'libxml2')
 makedepends=('which')
-optdepends=('tokyocabinet' 'libvirt' 'postgresql-libs' 'libmariadbclient' 'acl')
+optdepends=('libvirt' 'postgresql-libs' 'libmariadbclient' 'acl')
 install=${pkgname}.install
 source=("${pkgname}-${pkgver}.tar.gz::https://s3.amazonaws.com/cfengine.package-repos/tarballs/${pkgname}-${pkgver}.tar.gz"
         'cf-execd.service'
         'cf-monitord.service'
         'cf-serverd.service')
-md5sums=('42b0d3a90a1b60bf25cf63ccd6366f59'
+md5sums=('76754e9aa7498a614012e0c064b37cbe'
          'dba17dc5133b8fa86de11577120d46c5'
          'a2f9db31408f288cb934397ffb474db3'
          'ff28f7de9b81b4673082a2640a318896')
@@ -35,9 +35,8 @@ build() {
     --with-libacl=check \
     --with-libxml2 \
     --with-libvirt=check \
-    --with-qdbm \
+    --with-lmdb \
     --with-mysql=check \
-    --with-tokyocabinet=check \
     --with-postgresql=check
 
   make
