@@ -24,7 +24,7 @@ makedepends=('cmake')
 provides=('jreen')
 conflicts=('jreen-git')
 source=("${pkgname}-${pkgver}.zip::http://github.com/euroelessar/${pkgname}/archive/v${pkgver}.zip")
-md5sums=('ec99ee35e63dfdd22d650edbdb2e6edb')
+md5sums=('1ac6d90d17371288bebe3fc1921a977c')
 
 if [[ ! ${_buildtype} == 'Release' ]] && [[ ! ${_buildtype} == 'release' ]]; then
   options=('debug')
